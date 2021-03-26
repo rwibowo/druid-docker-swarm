@@ -2,7 +2,7 @@ version: '3.6'
 
 services:
   zookeeper1:
-    image: zookeeper:latest
+    image: zookeeper:3.6.2
     hostname: zookeeper1
     volumes:
       - zookeeper_data:/data
@@ -35,7 +35,7 @@ services:
         condition: on-failure
 
   zookeeper2:
-    image: zookeeper:latest
+    image: zookeeper:3.6.2
     hostname: zookeeper2
     volumes:
       - zookeeper_data:/data
@@ -68,7 +68,7 @@ services:
         condition: on-failure
 
   zookeeper3:
-    image: zookeeper:latest
+    image: zookeeper:3.6.2
     hostname: zookeeper3
     volumes:
       - zookeeper_data:/data
@@ -101,7 +101,7 @@ services:
         condition: on-failure
   
   db:
-    image: postgres:latest
+    image: postgres:9.6.20
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
@@ -133,7 +133,7 @@ services:
         condition: on-failure
   
   broker:
-    image: casplatformregistry.azurecr.io/druid:v1
+    image: riowibowo/druid:0.20.0
     networks:
       - druid_net
     ports:
@@ -169,7 +169,7 @@ services:
         condition: on-failure
   
   coordinator:
-    image: casplatformregistry.azurecr.io/druid:v1
+    image: riowibowo/druid:0.20.0
     networks:
       - druid_net
     ports:
@@ -205,7 +205,7 @@ services:
         condition: on-failure
   
   historical:
-    image: casplatformregistry.azurecr.io/druid:v1
+    image: riowibowo/druid:0.20.0
     networks:
       - druid_net
     ports:
@@ -241,7 +241,7 @@ services:
         condition: on-failure
   
   middleManager:
-    image: casplatformregistry.azurecr.io/druid:v1
+    image: riowibowo/druid:0.20.0
     networks:
       - druid_net
     command: middleManager
@@ -275,7 +275,7 @@ services:
         condition: on-failure
   
   overlord:
-    image: casplatformregistry.azurecr.io/druid:v1
+    image: riowibowo/druid:0.20.0
     networks:
       - druid_net
     ports:
